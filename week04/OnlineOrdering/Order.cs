@@ -3,9 +3,15 @@ public class Order{
     private Customer _customer;
 
 
-    public Order(Product product, Customer customer){
-        _products.Add(product);
+    public Order(Customer customer){
         _customer = customer;
+    }
+
+    public void AddProduct(Product product){
+        if(_products == null){
+            _products = new List<Product>();
+        }
+        _products.Add(product);
     }
         
     public float CalculateTotalCost(){
@@ -30,5 +36,10 @@ public class Order{
         }
         
         return packingLabel;
+    }
+
+    public string DisplayShippingLabel(){
+        string shippingLabel = $"Shipping Label:\n{_customer.GetCustomer()}";
+        return shippingLabel;
     }
 }
