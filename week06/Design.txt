@@ -1,0 +1,103 @@
+
+
+Eternal Quest
+-------------
+
+What does the program do?
+* Mark simple goals complete and award points
+* Return value each time the user records on the goal
+* Checklist goal that requires multiple steps to complete
+* Display total Score
+* Create new goals
+* Show a list of goals
+* record an event
+
+What user inputs does it have?
+* record an event
+* Create new goals
+* Menu
+
+What output does it produce?
+* Show a list of goals
+* Show if they are completed or not
+* Display total Score
+* Display reward for goal
+
+How does it end?
+* Summary of experience
+* Goals completed
+
+
+
+Classes:
+Goal
+SimpleGoal
+EternalGoal
+ChecklistGoal
+
+GoalManager
+
+
+-----------------------------------------------------------------------------------------------------------
+Behavior:
+
+Goal:
+_shortName: string
+_description: string
+_points: int
+
+Goal(string name, string description, int points): Constructor
+
+RecordEvent(): void(abstract)
+IsComplete(): bool (Abstract)
+GetDetailsString: string
+GetStringRepresentation: string(Abstract)
+
+
+
+SimpleGoal:
+_isComplete: bool
+
+SimpleGoal(string name, string description, int points) : base(name, description, points): Constructor
+
+RecordEvent(): void(Override)
+IsComplete(): bool(Override)
+GetStringRepresentation: string(Override)
+
+
+EternalGoal:
+EternalGoal(string name, string description, int points): base(name, description, points): Constructor
+
+RecordEvent(): void(Override)
+IsComplete(): bool(Override)
+GetStringRepresentation: string(Override)
+
+
+ChecklistGoal:
+_amountCompleted: int
+_target: int
+_bonus: int
+
+ChecklistGoal(string name, string description, int points, int target, int bonus): base(name, description, points): Constructor
+
+RecordEvent(): void(Override)
+IsComplete(): bool(Override)
+GetDetailsString: string(Override)
+GetStringRepresentation: string(Override)
+
+
+GoalManager:
+_goals: List<Goal>
+_score: int
+
+GoalManager(): Constructor
+
+Start(): void
+DisplayPlayerInfo(): void
+ListGoalNames(): void
+ListGoalDetails(): void
+CreatGoal(): void
+RecordEvent(): void
+SaveGoals(): void
+LoadGoals(): void
+----------------------------------------------------------------------------------------------------------
